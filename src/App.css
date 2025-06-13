@@ -1,1 +1,27 @@
 @import "tailwindcss";
+
+body {
+  background-color: #f8fafc;
+  box-sizing: border-box;
+  font-family: serif;
+}
+
+@layer utilities {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type="number"] {
+    appearance: textfield;
+  }
+}
+
+@theme {
+  --color-medium-gray: #9aa6b2;
+  --color-light-gray: #bcccdc;
+  --color-light-blue: #d9eafd;
+  --color-white: #f8fafc;
+  --color-text-gray: #0f172a;
+}
