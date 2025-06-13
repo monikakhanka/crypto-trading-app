@@ -1,9 +1,9 @@
-import { createBrowserRouter} from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import AppLayout from "../components/AppLayout";
 import Home from "../pages/Home";
 import Trade from "../pages/Trade";
 import Login from "../pages/Login";
-
+import ProtectedRoute from "../components/ProtectedRoute";
 
 const router = createBrowserRouter([
   {
@@ -16,7 +16,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/trade",
-        element: <Trade/>
+        element: (
+          <ProtectedRoute>
+            <Trade />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/login",

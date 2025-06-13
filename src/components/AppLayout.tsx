@@ -21,10 +21,10 @@ const AppLayout = () => {
           </ul>
         </div>
       </nav>
-      
-     <div className="h-[calc(100%-120px)] overflow-auto">
-       <Outlet />
-     </div>
+
+      <div className="h-[calc(100%-120px)] overflow-auto">
+        <Outlet />
+      </div>
     </div>
   );
 };
