@@ -59,7 +59,7 @@ const TradeBox: React.FC<TradeBoxProps> = ({
           </select>
           <span
             className="pointer-events-none absolute inset-y-0 right-3
-           flex items-center text-xl text-black"
+           flex items-center text-2xl text-black"
           >
             &#9662;
           </span>

@@ -3,7 +3,7 @@
 body {
   background-color: #f8fafc;
   box-sizing: border-box;
-  font-family: serif;
+  font-family: calibri;
 }
 
 @layer utilities {

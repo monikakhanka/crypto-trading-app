@@ -3,7 +3,7 @@ import { Link, Outlet } from "react-router-dom";
 const AppLayout = () => {
   return (
     <div className="h-[100%] flex flex-col">
-      <nav className="h-[100px] bg-medium-gray text-slate-900 font-medium text-2xl ">
+      <nav className="h-[70px] bg-medium-gray text-slate-900 font-medium text-xl ">
         <div className="flex justify-between items-center h-full px-6">
           <ul className="flex gap-16">
             <li>
