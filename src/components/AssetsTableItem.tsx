@@ -77,20 +77,20 @@ const AssetsTableItem = ({ tokenInfo }: AssetsTableItemProps) => {
       <table className="w-full text-left">
         <thead className="text-lg bg-gray-200 sticky top-0 z-20">
           <tr>
-            <th className="px-4 py-4 w-36 ">Symbol </th>
+            <th className="px-4 py-4 w-36 ">SYMBOL</th>
             <th
               className="px-4 py-4 w-36 cursor-pointer"
               onClick={handleNameSorting}
             >
-              Name &#8645;
+              NAME &#8645;
             </th>
             <th
               className="px-4 py-4 w-36 cursor-pointer"
               onClick={handlePriceSorting}
             >
-              Price (USD) &#8645;
+              PRICE (USD) &#8645;
             </th>
-            <th className="px-4 py-4 w-36  ">Sell / Buy</th>
+            <th className="px-4 py-4 w-36  ">SELL / BUY</th>
           </tr>
         </thead>
         <tbody className="mt-9">
@@ -112,8 +112,8 @@ const AssetsTableItem = ({ tokenInfo }: AssetsTableItemProps) => {
                     className="w-25 px-2 py-1 bg-gray-200 rounded-xl focus:outline-hidden appearance-none focus:bg-gray-400 hover:bg-medium-gray"
                     defaultValue={"sell"}
                   >
-                    <option value="buy">Buy</option>
-                    <option value="sell">Sell</option>
+                    <option value="buy">BUY</option>
+                    <option value="sell">SELL</option>
                   </select>
                   <span className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-black text-xl">
                     &#9662;
