@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useAppDispatch } from "../hooks/reduxHooks";
 import { login } from "../store/authSlice";
@@ -9,16 +9,26 @@ const Login = () => {
   const location = useLocation();
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
+  const [error, setError] = useState<String>("");
 
   const from = (location.state as { from?: string })?.from || "/";
 
   const handleButtonClick = () => {
     const email = emailRef.current?.value;
     const password = passwordRef.current?.value;
+    if (!email || !password) {
+      setError("Please enter both email and password.");
+      return;
+    }
+
+    if (password.length < 4) {
+      setError("Password must be at least 4 characters long.");
+      return;
+    }
 
     if (email && password) {
       dispatch(login({ email }));
-      navigate(from, {replace: true});
+      navigate(from, { replace: true });
     } else {
       navigate("/login");
     }
@@ -43,8 +53,9 @@ const Login = () => {
         ref={passwordRef}
         type="password"
         placeholder="Password"
-        className="p-4 mx-4 my-4 w-11/12 h-12 bg-white border border-white rounded-lg  placeholder-gray-500 focus:outline-hidden"
+        className="p-4 mx-4 my-2 w-11/12 h-12 bg-white border border-white rounded-lg  placeholder-gray-500 focus:outline-hidden"
       />
+      {error && <p className="text-red-600 text-sm mx-4">{error}</p>}
       <button
         className="px-2 mx-4 my-4 mb-5 text-text-gray w-11/12 h-12 bg-light-gray rounded-lg text-xl focus:bg-gray-600"
         onClick={handleButtonClick}
