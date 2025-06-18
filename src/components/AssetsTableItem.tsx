@@ -40,7 +40,7 @@ const AssetsTableItem = ({ tokenInfo }: AssetsTableItemProps) => {
   const [sortedData, setSortedData] = useState<TokenInfo[]>([...tokenInfo]);
   const [sortBy, setSortBy] = useState<"name" | "price" | null>(null);
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
-  const [page, setPage] = useState<number>(1);
+  // const [page, setPage] = useState<number>(1);
 
   const toggleSortOrder = (key: "name" | "price") => {
     const order = sortBy === key && sortOrder === "asc" ? "desc" : "asc";
