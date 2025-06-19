@@ -109,7 +109,7 @@ const AssetsTableItem = ({ tokenInfo }: AssetsTableItemProps) => {
               <td className="px-4 py-4 w-36">
                 <div className="relative inline-block w-25">
                   <select
-                    className="w-25 px-2 py-1 bg-gray-200 rounded-xl focus:outline-hidden appearance-none focus:bg-gray-400 hover:bg-medium-gray"
+                    className="w-25 px-2 py-1 bg-gray-200 rounded-xl focus:outline-hidden appearance-none focus:bg-gray-400 hover:bg-medium-gray hover:cursor-pointer"
                     defaultValue={"sell"}
                   >
                     <option value="buy">BUY</option>
