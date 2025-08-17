@@ -29,9 +29,7 @@ A modern cryptocurrency trading platform built with React, Vite, Tailwind CSS, a
 ## Features
 
 - **Asset Exploration**: Browse a list of cryptocurrencies with real-time data.
-- **Portfolio Management**: Track your cryptocurrency holdings and their values.
 - **Trading Interface**: Simulate trading actions with real-time updates.
-- **Responsive Design**: Optimized for both desktop and mobile devices.
 
 ---
 
@@ -53,8 +51,11 @@ To run the project locally:
    ```
 4. Start the development server:
   ```bash
-    npm run dev
+    npm run dev 
   ```
+## Running tests
+  ```npm run test
+  ```  
 ## Project Structure
 
 crypto-trading-app/
@@ -76,14 +77,64 @@ crypto-trading-app/
 - Trade: Allows users to simulate buying and selling cryptocurrencies.
 - Login: Provides authentication functionality for users.
 
-## Components
-- AssetsTableItem: Displays individual cryptocurrency data in a table format.
-- ProtectedRoute: Ensures that certain routes are accessible only to authenticated users.
-- AppLayout: Serves as the main layout wrapper for the application.
+## To run tests
+``` npm run test
+```
 
-## Routing
-Routing is managed using React Router. The application's routes are defined as follows:
+## Assumptions
+- Authentication
+  User authentication is currently minimal (e.g., local state or mock login) and not connected to a real backend.
 
-- Home: Accessible at the root path (/).
-- Trade: Accessible at /trade, protected by authentication.
-- Login: Accessible at /login.
+- Market Data
+  Cryptocurrency data comes from a third-party API (like CoinGecko or CoinMarketCap).
+  Assumes API has reasonable rate limits and returns data in JSON.
+  Data latency is acceptable since it’s not a real-money trading app.
+
+- Trading Simulation
+  All trades are simulated; no actual transactions occur on blockchain or exchanges.
+  Portfolio balance is stored in local state or Redux, not persisted in a database.
+
+- Technology Stack
+  Vite is assumed to be used for local development and GitHub Pages for deployment. 
+  Tailwind CSS is used across the app; assumes developers are comfortable with utility-first CSS.
+  Redux is assumed to be sufficient for current state management, though it could become heavy with scaling.
+
+- Testing
+  Tests are written using React Testing Library + Jest (or Vitest if integrated).
+  Coverage is for only one component and page, not end-to-end flows yet.
+
+## Trade-offs
+
+- Vite vs Create React App
+
+  - Faster builds, better DX with Vite.
+  - Some Jest configurations may need tweaking (since Jest doesn’t natively support import.meta.env).
+
+- Redux vs Context API
+
+  - Redux makes state predictable, easier to debug, and scalable as app grows.
+  - Boilerplate and more setup compared to simple Context + Hooks.
+
+- Tailwind CSS vs Styled Components
+
+  - Tailwind allows rapid prototyping and consistent design.
+  - Can make JSX verbose and harder to read without abstractions.
+
+- Mocked Trading vs Real Exchange API
+
+  - Safer for beginners, avoids legal/financial risks.
+  - Not realistic for users wanting real trading features.
+
+- Static Deployment (GitHub Pages) vs Backend Integration
+
+  - Easier, cheaper, and no backend management.
+  - Limited — no persistent data, no authentication beyond client-side mock.
+
+## Potential features for future:
+- Authentication
+
+  - Add JWT-based authentication with a backend.
+  - OAuth (Google, GitHub, MetaMask for crypto login).
+
+- Portfolio Persistence
+  - Save portfolio data in a database (Firebase, MongoDB, Supabase).
