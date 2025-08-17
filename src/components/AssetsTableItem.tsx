@@ -90,7 +90,7 @@ const AssetsTableItem = ({ tokenInfo }: AssetsTableItemProps) => {
             >
               PRICE (USD) &#8645;
             </th>
-            <th className="px-4 py-4 w-36  ">SELL / BUY</th>
+            <th className="px-4 py-4 w-36 ">SELL / BUY</th>
           </tr>
         </thead>
         <tbody className="mt-9">
@@ -112,8 +112,8 @@ const AssetsTableItem = ({ tokenInfo }: AssetsTableItemProps) => {
                     className="w-25 px-2 py-1 bg-gray-200 rounded-xl focus:outline-hidden appearance-none focus:bg-gray-400 hover:bg-medium-gray hover:cursor-pointer"
                     defaultValue={"sell"}
                   >
-                    <option value="buy">BUY</option>
-                    <option value="sell">SELL</option>
+                    <option value="buy" className="hover:cursor-pointer">BUY</option>
+                    <option value="sell" className="hover:cursor-pointer">SELL</option>
                   </select>
                   <span className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-black text-xl">
                     &#9662;

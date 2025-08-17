@@ -1,4 +1,4 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useAppSelector } from "../hooks/reduxHooks";
 import { useDispatch } from "react-redux";
 import { useEffect, useRef, useState } from "react";
@@ -7,9 +7,14 @@ import { login, logout } from "../store/authSlice";
 const AppLayout = () => {
   const email = useAppSelector((state) => state.auth.email);
   const [isLoginFormOpen, setIsLoginFormOpen] = useState<boolean>(false);
+  
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const dispatch = useDispatch();
-
+  
+  const from = (location.state as { from?: string })?.from || "/";
+  console.log("from",from);
   useEffect(() => {
     const savedEmail = localStorage.getItem("email");
     if (savedEmail && !email) {
@@ -18,6 +23,7 @@ const AppLayout = () => {
   }, []);
   const [dropDownOpen, setDropDownOpen] = useState(false);
   const dropdownRef = useRef<HTMLLIElement>(null);
+  
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -43,6 +49,11 @@ const AppLayout = () => {
   const handleLogout = () => {
     dispatch(logout());
     setDropDownOpen(false);
+     
+    if (location.pathname === "/trade") {
+    setTimeout(() => navigate("/"), 0);
+  }
+   
   };
 
   return (
